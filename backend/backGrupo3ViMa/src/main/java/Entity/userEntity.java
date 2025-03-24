@@ -18,7 +18,7 @@ public class userEntity {
     @Column
     private String apellido;
 
-    @Column
+    @Column(unique = true)
     private String dni;
 
     @Column
@@ -34,8 +34,13 @@ public class userEntity {
     private LocalDate fechaNacimiento;
 
     @Column
-    private int obraSocial;
+    private Integer obraSocial;
 
     @Column
     private String contrasenia;
+
+    @Column
+    private String urlimagenperfil;
+
+
 }
