@@ -1,11 +1,10 @@
 package Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -14,6 +13,9 @@ public class obrasSocialesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column
+    private String nombre;
 
-
+    @OneToMany(mappedBy = "obraSocial")
+    private List<userEntity> usuarios;
 }

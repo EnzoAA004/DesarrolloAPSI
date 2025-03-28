@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -34,13 +35,21 @@ public class userEntity {
     private LocalDate fechaNacimiento;
 
     @Column
-    private Integer obraSocial;
-
-    @Column
     private String contrasenia;
 
     @Column
     private String urlimagenperfil;
 
+    @ManyToOne
+    @JoinColumn(name = "obra_social_id")
+    private obrasSocialesEntity obraSocial;
 
+
+    @ManyToMany
+    @JoinTable(
+            name = "usuario_doctor",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "doctor_id")
+    )
+    private List<doctorEntity> doctores;
 }
