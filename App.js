@@ -5,7 +5,7 @@ export default function App() {
   return (
       <View className="flex-1 bg-white items-center justify-center">
         <Text className="text-lg font-bold text-gray-700">
-          Open up App.js to start working on your app!
+          Open up App.js to start working on your app! JEJE!
         </Text>
         <StatusBar style="auto" />
       </View>
