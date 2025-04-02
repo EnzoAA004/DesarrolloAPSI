@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7daca2fb-731a-4356-8012-e09fa5fbcc89" name="Changes" comment="1.0.2">
-      <change afterPath="$PROJECT_DIR$/screens/DetailsScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screens/HomeScreen.js" afterDir="false" />
+    <list default="true" id="7daca2fb-731a-4356-8012-e09fa5fbcc89" name="Changes" comment="1.1.0">
+      <change afterPath="$PROJECT_DIR$/screens/CalendarioScreen.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/DetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/DetailsScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -80,6 +80,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\franc\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -100,7 +101,7 @@
       <updated>1743624441370</updated>
       <workItem from="1743624444067" duration="642000" />
       <workItem from="1743625104745" duration="114000" />
-      <workItem from="1743625233129" duration="1441000" />
+      <workItem from="1743625233129" duration="3532000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -134,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743626224787</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1.1.0">
+      <option name="closed" value="true" />
+      <created>1743626918707</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743626918707</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +164,7 @@
     <MESSAGE value="1" />
     <MESSAGE value="1.0.1" />
     <MESSAGE value="1.0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.2" />
+    <MESSAGE value="1.1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.1.0" />
   </component>
 </project>
