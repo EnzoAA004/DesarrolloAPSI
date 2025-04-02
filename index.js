@@ -1,5 +1,8 @@
 import { registerRootComponent } from 'expo';
 
+// Import the global.css file in the index.js file:
+import './global.css';
+
 import App from './App';
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
