@@ -22,7 +22,7 @@ public class userEntity {
     @Column(unique = true)
     private String dni;
 
-    @Column
+    @Column(unique = true)
     private String email;
 
     @Column
