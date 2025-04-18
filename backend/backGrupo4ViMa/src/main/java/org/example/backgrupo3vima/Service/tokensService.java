@@ -8,5 +8,9 @@ public interface tokensService {
     Tokens actualizarTokens();
     boolean isExpired(Tokens token);
 
-    Tokens crearToken();
+    Tokens crearTokenParaUsuario(Long userId);
+
+
+    void enviarCorreo(String correo, String asunto, String mensaje);
+
 }

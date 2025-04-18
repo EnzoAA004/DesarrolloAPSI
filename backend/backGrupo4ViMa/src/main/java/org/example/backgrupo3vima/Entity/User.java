@@ -23,13 +23,13 @@ public class User {
     private String dni;
 
     @Column(unique = true)
-    private String email;
+    private String correo;
 
     @Column
     private String genero;
 
     @Column
-    private Integer edad;
+    private String edad;
 
     @Column
     private LocalDate fechaNacimiento;

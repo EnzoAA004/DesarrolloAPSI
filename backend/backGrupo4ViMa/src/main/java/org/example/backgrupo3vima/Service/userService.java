@@ -1,5 +1,6 @@
 package org.example.backgrupo3vima.Service;
 
+import org.example.backgrupo3vima.Entity.ObrasSociales;
 import org.example.backgrupo3vima.Entity.User;
 
 import java.util.List;
@@ -10,4 +11,14 @@ public interface userService {
     List<User> getAllUsers();
 
     User actualizarUsuario(Long id, Map<String, Object> updates);
+
+    User crearUsuario(User user);
+
+    ObrasSociales getObraSocialById(Integer idObraSocial);
+
+
+    String generarTokenDeCambioContrasenia(String correo);
+
+    void actualizarContrasenia(String correo, String nuevaContrasenia);
+
 }

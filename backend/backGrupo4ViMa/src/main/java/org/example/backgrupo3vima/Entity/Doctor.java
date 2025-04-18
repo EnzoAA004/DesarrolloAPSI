@@ -17,7 +17,7 @@ public class Doctor {
 
     private String apellido;
 
-    private String especialidad;
+    private int idEspecialidad;
 
     private String telefono;
 
@@ -29,4 +29,8 @@ public class Doctor {
 
     @ManyToMany(mappedBy = "doctores")
     private List<User> usuarios;
+
+    @ManyToOne
+    @JoinColumn(name = "idEspecialidad", insertable = false, updatable = false)
+    private Especialidad especialidad;
 }

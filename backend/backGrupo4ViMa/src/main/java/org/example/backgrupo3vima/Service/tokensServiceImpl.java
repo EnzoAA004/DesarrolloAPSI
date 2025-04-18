@@ -3,6 +3,8 @@ package org.example.backgrupo3vima.Service;
 
 import org.example.backgrupo3vima.Entity.Tokens;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.example.backgrupo3vima.Repository.tokensRepository;
@@ -34,12 +36,14 @@ public class tokensServiceImpl implements tokensService {
     }
 
     @Override
-    public Tokens crearToken() {
-        String token = generateRandomToken(6);
+    public Tokens crearTokenParaUsuario(Long userId) {
+        String token = generateRandomToken(6); // Generate a random token
         Tokens newToken = new Tokens();
         newToken.setToken(token);
         newToken.setFechaCreacion(LocalDate.now());
-        return tokensRepository.save(newToken);
+        newToken.setId(Math.toIntExact(userId)); // Associate the token with the user
+        tokensRepository.save(newToken); // Save the token in the repository
+        return newToken;
     }
 
     private String generateRandomToken(int length) {
@@ -52,12 +56,17 @@ public class tokensServiceImpl implements tokensService {
         return token.toString();
     }
 
-    //Token para iniciar sesion - mandar mail
 
+    @Autowired
+    private JavaMailSender javaMailSender;
 
-    //Token para restablecer contraseña - mandar mail
-
-
+    public void enviarCorreo(String destinatario, String asunto, String mensaje) {
+        SimpleMailMessage email = new SimpleMailMessage();
+        email.setTo(destinatario);
+        email.setSubject(asunto);
+        email.setText(mensaje);
+        javaMailSender.send(email);
+    }
 
 /*
     public class Main {
