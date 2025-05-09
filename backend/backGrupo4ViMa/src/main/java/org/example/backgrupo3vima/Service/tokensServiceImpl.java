@@ -1,10 +1,15 @@
 package org.example.backgrupo3vima.Service;
 
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import lombok.Getter;
 import org.example.backgrupo3vima.Entity.Tokens;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.example.backgrupo3vima.Repository.tokensRepository;
@@ -20,6 +25,9 @@ public class tokensServiceImpl implements tokensService {
 
     @Autowired
     private tokensRepository tokensRepository;
+
+    @Autowired
+    private JavaMailSender javaMailSender;
 
     @Scheduled(fixedRate = 86400000) // 24 hours in milisegundos
     @Override
@@ -37,7 +45,7 @@ public class tokensServiceImpl implements tokensService {
 
     @Override
     public Tokens crearTokenParaUsuario(Long userId) {
-        String token = generateRandomToken(6); // Generate a random token
+        String token = generateRandomToken(4); // Generate a random token
         Tokens newToken = new Tokens();
         newToken.setToken(token);
         newToken.setFechaCreacion(LocalDate.now());
@@ -57,9 +65,7 @@ public class tokensServiceImpl implements tokensService {
     }
 
 
-    @Autowired
-    private JavaMailSender javaMailSender;
-
+    @Override
     public void enviarCorreo(String destinatario, String asunto, String mensaje) {
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(destinatario);
@@ -67,6 +73,24 @@ public class tokensServiceImpl implements tokensService {
         email.setText(mensaje);
         javaMailSender.send(email);
     }
+
+    @Override
+    public void enviarCorreoSoporte(String destinatario, String asunto, String mensaje, String correoUsuario) {
+        try {
+            MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, "utf-8");
+
+            helper.setTo(destinatario);
+            helper.setSubject(asunto);
+            helper.setText(mensaje, false);
+            helper.setReplyTo(correoUsuario);  // <- Esto permite responder al usuario
+
+            javaMailSender.send(mimeMessage);
+        } catch (MessagingException e) {
+            throw new RuntimeException("Error al enviar el correo", e);
+        }
+    }
+
 
 /*
     public class Main {

@@ -10,7 +10,8 @@ public interface tokensService {
 
     Tokens crearTokenParaUsuario(Long userId);
 
-
+    //void enviarCorreo(String destinatario, String asunto, String mensaje, String correoUsuario);
     void enviarCorreo(String correo, String asunto, String mensaje);
+    void enviarCorreoSoporte(String destinatario, String asunto, String mensaje, String correoUsuario);
 
 }

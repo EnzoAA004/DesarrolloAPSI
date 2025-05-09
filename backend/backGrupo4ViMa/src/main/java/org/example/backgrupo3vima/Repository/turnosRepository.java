@@ -23,4 +23,10 @@ public interface turnosRepository extends JpaRepository<Turnos, Integer> {
 
     @Query("SELECT t FROM Turnos t WHERE t.fechaTurno = :fechaTurno AND t.estado = :estado")
     List<Turnos> findByFechaTurnoAndEstado(@Param("fechaTurno") LocalDateTime fechaTurno, @Param("estado") TurnoEstado estado);
+
+    List<Turnos> findByUsuarioId(int usuarioId);
+
+    List<Turnos> findByDoctorIdAndFechaTurno(int idDoctor, LocalDate fecha);
+
+    List<Turnos> findByEstado(TurnoEstado turnoEstado);
 }

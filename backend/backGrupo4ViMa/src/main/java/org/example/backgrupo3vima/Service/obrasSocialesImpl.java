@@ -5,6 +5,8 @@ import org.example.backgrupo3vima.Repository.obrasSocialesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class obrasSocialesImpl implements obrasSociales {
 
@@ -28,5 +30,10 @@ public class obrasSocialesImpl implements obrasSociales {
     @Override
     public void deleteObraSocial(Long id) {
         obrasSocialesRepository.deleteById(id);
+    }
+
+    @Override
+    public List<ObrasSociales> todasLasObrasSociales() {
+        return obrasSocialesRepository.findAll();
     }
 }

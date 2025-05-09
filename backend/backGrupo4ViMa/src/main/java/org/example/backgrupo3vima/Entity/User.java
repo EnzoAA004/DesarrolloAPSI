@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -34,6 +35,9 @@ public class User {
     @Column
     private LocalDate fechaNacimiento;
 
+    @Column(length = 15, nullable = false)
+    private String celular;
+
     @Column
     private String contrasenia;
 
@@ -44,6 +48,31 @@ public class User {
     @JoinColumn(name = "obra_social_id")
     private ObrasSociales obraSocial;
 
+    @Column(name = "fcm_token")
+    private String fcmToken;
+
+    @Column
+    private Boolean temporal; //Estado del usuario a la hora del ingreso
+
+    @Column
+    private Boolean notificacionesActivadas;
+
+    @Column
+    private Boolean vibracionActivada;
+
+    @Column
+    private Boolean actualizacionesApp;
+
+    @Column
+    private Boolean modoOscuro;
+
+
+    //2 columnas para la parte de inicio y cerrar sesion
+    @Column
+    private LocalDateTime ultimaActividad; // Fecha y hora de la última actividad del usuario
+
+    @Column
+    private Boolean sesionActiva; // Indica si el usuario tiene la sesión iniciada
 
     @ManyToMany
     @JoinTable(
@@ -52,4 +81,8 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "doctor_id")
     )
     private List<Doctor> doctores;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Turnos> turnos;
+
 }

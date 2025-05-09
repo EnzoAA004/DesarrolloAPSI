@@ -22,4 +22,9 @@ public class Tokens {
     @ManyToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private User usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_turno", referencedColumnName = "id")
+    private Turnos turno;
+
 }

@@ -7,8 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface tokensRepository extends JpaRepository<Tokens, Long> {
-    Optional<Tokens> findByUserId(Long userId);
+public interface tokensRepository extends JpaRepository<Tokens, Integer> {
+
+    Optional<Tokens> findByUsuario_Id(Long userId);
+
 
     Optional<Tokens> findByToken(String tokenIngresado);
 }
